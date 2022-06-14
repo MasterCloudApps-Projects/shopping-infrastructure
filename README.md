@@ -2,20 +2,28 @@
 
 ## Table of contents
 - [Master cloud apps TFM - Infrastructure](#master-cloud-apps-tfm---infrastructure)
-    - [Table of contents](#table-of-contents)
-    - [Description](#description)
-    - [Requirements](#requirements)
-    - [Technologies](#technologies)
-    - [Project structure](#project-structure)
-    - [Configuration](#configuration)
-    - [Usage](#usage)
-    - [Developers](#developers)
+  - [Table of contents](#table-of-contents)
+  - [Description](#description)
+  - [Requirements](#requirements)
+  - [Technologies](#technologies)
+  - [Project structure](#project-structure)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [Developers](#developers)
 
 ## Description
 This is the Master cloud apps TFM infrastructure repository.
-It contains the necessary infrastructure resources to deploy TFM project:
-* MySQL instance for [Users API](https://github.com/mca-tfm/users).
-* Dynamodb tables for [Products API](https://github.com/mca-tfm/products).
+
+This repo contains:
+* References to all the used repos to perform the TFM:
+  * [Users API](https://github.com/MasterCloudApps-Projects/shopping-users).
+  * [Products API](https://github.com/MasterCloudApps-Projects/shopping-products).
+  * [Purchases API](https://github.com/MasterCloudApps-Projects/shopping-purchases).
+  * [Api Gateway](https://github.com/MasterCloudApps-Projects/shopping-api-gateway).
+* Necessary infrastructure resources to deploy TFM project:
+  * MySQL instance for [Users API](https://github.com/MasterCloudApps-Projects/shopping-users) and [Purchases API](https://github.com/MasterCloudApps-Projects/shopping-purchases).
+  * Dynamodb tables for [Products API](https://github.com/MasterCloudApps-Projects/shopping-products).
+* [TFM documentation](./docs).
 
 ## Requirements
 No necessary requirements.
@@ -27,7 +35,7 @@ No necessary requirements.
 Project is composed by the next modules:
 * **cloud**: contains docker files
   * **aws**:
-    * **cloudFormation**: 
+    * **cloudFormation**:
       * **tfm-stack.yml**: cloud formation stack template to create necessary AWS resources for the TFM project.
 * **docs**: folder with TFM project documentation.
   * **demo**: demo resources.
@@ -46,7 +54,7 @@ When load the stack template you'll have to introduce next parameters:
 ## Usage
 * This project is used only to create necessary resource for production environment (preproduction environment uses docker containers deployed on pre cluster k8s).
 * Create an AWS CloudFormation stack following steps described in [AWS doc](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.html#GettingStarted.Walkthrough.createstack)
-using the template [tfm-stack.yml](cloud/aws/cloudFormation/tfm-stack.yml).
+  using the template [tfm-stack.yml](cloud/aws/cloudFormation/tfm-stack.yml).
 * Check resources creation status as described [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.html#GettingStarted.Walkthrough.monitor).
 * When stack creation finish, you can read necessary info as MySQL url in stack Outputs.
 
